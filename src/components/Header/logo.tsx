@@ -1,6 +1,6 @@
 import React from "react";
 
-const Logo = () => {
+const Logo = () : React.ReactElement => {
     return (
         <svg
             className = "w-10 h-10"

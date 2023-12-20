@@ -17,5 +17,5 @@ const BlogPages = () => {
                 </article>
             </div>
         </div>
-    )
+    );
 }
