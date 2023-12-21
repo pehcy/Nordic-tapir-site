@@ -1,19 +1,18 @@
 import { PageProps } from "gatsby";
 import React from "react";
-import Header from "../components/Header";
+import Layout from "../components/Layout";
 
 const IndexPage: React.FC<PageProps> = () => {
     return (
-        <div className="flex flex-col">
-            <Header />
-            <footer className="px-4 lg:px-8 p-4 bg-transparent h-[150px]">
-                <section className="w-full max-w-5xl mx-auto p-4 md:py-8">
-                    <hr/>
-                    <span className="mt-4 block text-sm text-gray-500 sm:text-center dark:text-gray-400">Copyright © 2023 by Nordic Tapir (pehcy)</span>
-                </section>
-            </footer>
-        </div>
-    )
+        <Layout>
+            <div className="mx-auto mt-10">
+	            <div className="p-8 relative">
+		            <h1 className="text-[3.8em] font-bold pb-4">We're tapirs</h1>
+		            <p className="mb-[.8571429em] pl-6">Welcome to Nordic Tapir Laboratory, feel free to look around.</p>
+	            </div>
+            </div>
+        </Layout>
+    );
 }
 
 export default IndexPage;

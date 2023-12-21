@@ -34,17 +34,17 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
             allMdx(
                 sort: {frontmatter: {date: DESC}}
                 filter: {frontmatter: {published: {eq: true}}}
-              ) {
+            ) {
                 edges {
-                  node {
-                    fields {
-                      slug
+                    node {
+                        fields {
+                            slug
+                        }
+                        frontmatter {
+                            date
+                            title
+                        }
                     }
-                    frontmatter {
-                      date
-                      title
-                    }
-                  }
                 }
             }
         }

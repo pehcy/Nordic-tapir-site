@@ -33,7 +33,7 @@ export default function Header() : React.ReactElement {
                                 width="38" 
                                 aria-label="Menu"
                                 className={`nav-open md:hidden ${ isToggle ? "hidden" : ""}`}>
-                                <path d="M2 19h20M2 5h20M2 12h20" fill="none" stroke-width="2" stroke="#000"></path>
+                                <path d="M2 19h20M2 5h20M2 12h20" fill="none" strokeWidth="2" stroke="#000"></path>
                             </svg>
                             <svg 
                                 viewBox="0 0 24 24" 
@@ -41,7 +41,7 @@ export default function Header() : React.ReactElement {
                                 width="38" 
                                 aria-label="Close" 
                                 className={`nav-close ${ !isToggle ? "hidden" : ""}`}>
-                                <path d="m3 3 18 18M3 21 21 3" fill="none" stroke-width="2" stroke="#000"></path>
+                                <path d="m3 3 18 18M3 21 21 3" fill="none" strokeWidth="2" stroke="#000"></path>
                             </svg>
                         </button>
                     </div>
