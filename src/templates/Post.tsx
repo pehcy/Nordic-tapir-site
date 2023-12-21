@@ -33,7 +33,6 @@ export const query = graphql`
       tableOfContents
       frontmatter {
         title
-        featuredImage
         date
         published
       }

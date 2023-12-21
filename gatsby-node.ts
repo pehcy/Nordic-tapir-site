@@ -53,7 +53,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
     const postTemplate = path.resolve('./src/templates/Post.tsx');
     const createPostPromise = result.data?.allMdx.edges.map((edge) => {
         createPage({
-            path: `posts/${edge.node.fields?.slug}`,
+            path: `blog/${edge.node.fields?.slug}`,
             component: postTemplate,
             context: { slug: edge.node.fields?.slug }
         });

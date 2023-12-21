@@ -136,7 +136,7 @@ const WorkPage: React.FC<PageProps> = () => {
                                         <ul className="list-disc">
                                             <li>iPerf3;</li>
                                             <li>TWAMP;</li>
-                                            <li>WireShark</li>
+                                            <li>WireShark;</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -160,13 +160,14 @@ const WorkPage: React.FC<PageProps> = () => {
                                     </div>
                                 </div>
                                 <div className="flex flex-col py-6">
-                                    <p className="text-lg font-semibold py-3">Linux</p>
+                                    <p className="text-lg font-semibold py-3">Linux and DevOps</p>
                                     <div className="ml-5">
                                         <ul className="list-disc">
                                             <li>Familiar with Debian/Ubuntu and RHEL/CentOS Ecosystem;</li>
                                             <li>Packaging .deb and .rpm installers for Debian and RHEL;</li>
                                             <li>Systemd service daemon;</li>
-                                            <li>Azure DevOps pipeline;</li>
+                                            <li>YAML file for Azure DevOps pipeline;</li>
+                                            <li>Docker / Podman;</li>
                                         </ul>
                                     </div>
                                 </div>
