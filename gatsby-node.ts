@@ -27,7 +27,7 @@ interface IOnCreateNode {
     getNode: any;
 }
 
-export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions, reporter }) => {
+export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions, reporter }: CreatePagesArgs) => {
     const { createPage } = actions;
     const result = await graphql<Queries.GatsbyNodeCreatePagesQuery>(`
         query GatsbyNodeCreatePages {
@@ -35,15 +35,17 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
                 sort: {frontmatter: {date: DESC}}
                 filter: {frontmatter: {published: {eq: true}}}
             ) {
-                edges {
-                    node {
-                        fields {
-                            slug
-                        }
-                        frontmatter {
-                            date
-                            title
-                        }
+                nodes {
+                    id
+                    fields {
+                        slug
+                    }
+                    frontmatter {
+                        date
+                        title
+                    }
+                    internal {
+                        contentFilePath
                     }
                 }
             }
@@ -51,11 +53,11 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
     `);
 
     const postTemplate = path.resolve('./src/templates/Post.tsx');
-    const createPostPromise = result.data?.allMdx.edges.map((edge) => {
+    const createPostPromise = result.data?.allMdx.nodes.map((node) => {
         createPage({
-            path: `blog/${edge.node.fields?.slug}`,
-            component: postTemplate,
-            context: { slug: edge.node.fields?.slug }
+            path: `blog${node.fields?.slug}`,
+            component: `${postTemplate}?__contentFilePath=${node.internal.contentFilePath}`,
+            context: { id: node.id }
         });
     });
 

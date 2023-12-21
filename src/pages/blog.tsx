@@ -17,7 +17,7 @@ const BlogPages: React.FC<PageProps<Queries.BlogMdxQuery>> = ({ data }) => {
                     { data?.allMdx.edges.map(({node}) => (
                         <>
                             <Link
-                            to={`/blog/${node.fields?.slug}`}
+                            to={`/blog${node.fields?.slug}`}
                             >
                                 <div className="card relative hover:bg-gray-100">
                                     <div className="max-w-lg relative flex flex-col">

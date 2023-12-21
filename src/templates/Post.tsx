@@ -1,40 +1,59 @@
 import { PageProps, graphql, useStaticQuery } from "gatsby";
+import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import React from "react";
-import Header from "../components/Header";
 import { MDXProvider } from "@mdx-js/react";
+import Layout from "../components/Layout";
 
 const BlogPostTemplate: React.FC<PageProps<Queries.BlogPostQuery>> = ({ data, children } : any) => {
-
-    const { frontmatter, body, tableOfContents } = data.mdx;
-
-    return (
-        <div className="flex flex-col">
-            <Header />
-            <MDXProvider>
-              {children}
-            </MDXProvider>
-            <footer className="px-4 lg:px-8 p-4 bg-transparent h-[150px]">
-                <section className="w-full max-w-5xl mx-auto p-4 md:py-8">
-                    <hr/>
-                    <span className="mt-4 block text-sm text-gray-500 sm:text-center dark:text-gray-400">Copyright © 2023 by Nordic Tapir (pehcy)</span>
-                </section>
-            </footer>
+  return (
+    <Layout>
+      <div className="mt-8">
+        <div className="max-w-5xl overflow-hidden relative mx-auto p-8">
+          <div className="flex flex-col">
+            <div className="py-6">
+              <h1 className="text-4xl font-bold pb-2">{ data.mdx?.frontmatter?.title }</h1>
+              <div className="flex flex-row flex-wrap text-slate-400">
+                <span>pehcy</span>
+                <span className="px-5"> | </span>
+                <span>✒️ Created: { data.mdx?.frontmatter?.date }</span>
+                <span className="px-5"> | </span>
+                <span>⏱️ Time to read: { data.mdx?.frontmatter?.timeToRead }</span>
+                <span className="px-5"> | </span>
+                <span>💾 Last updated: { data.mdx?.frontmatter?.date }</span>
+              </div>
+            </div>
+            <GatsbyImage 
+              className="max-w-3xl rounded-md" 
+              image={ data.mdx?.frontmatter?.featuredImage?.childImageSharp?.gatsbyImageData as IGatsbyImageData}
+              alt={ data.mdx?.frontmatter?.description }
+            />
+          </div>
+          <article className="mt-10 blog-main header-bar leading-relaxed text-ellipsis">
+            <MDXProvider>{ children }</MDXProvider>
+          </article>
         </div>
-    );
+      </div>
+    </Layout>
+  );
 }
 
 export default BlogPostTemplate;
 
 export const query = graphql`
-  query BlogPost {
-    mdx {
-      id
-      body
+  query BlogPost($id: String!) {
+    mdx(id: { eq: $id }) {
       tableOfContents
       frontmatter {
         title
+        description
         date
         published
+        timeToRead
+        featuredImage {
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
       }
       fields {
         slug
