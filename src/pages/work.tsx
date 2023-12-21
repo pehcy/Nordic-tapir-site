@@ -209,7 +209,7 @@ const WorkPage: React.FC<PageProps> = () => {
                 </section>
             </footer>
         </div>
-    )
+    );
 }
 
 export default WorkPage;
