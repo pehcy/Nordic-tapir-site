@@ -1,4 +1,4 @@
-import { GatsbyNode, graphql } from "gatsby";
+import { GatsbyNode, CreatePagesArgs } from "gatsby";
 
 const path = require("path");
 const { createFilePath } = require('gatsby-source-filesystem');
@@ -28,9 +28,9 @@ interface IOnCreateNode {
 }
 
 export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions, reporter }) => {
-    const { createPage, createTypes } = actions;
-    const result = await graphql<TypeEdgesData>(`
-        {
+    const { createPage } = actions;
+    const result = await graphql<Queries.GatsbyNodeCreatePagesQuery>(`
+        query GatsbyNodeCreatePages {
             allMdx(
                 sort: {frontmatter: {date: DESC}}
                 filter: {frontmatter: {published: {eq: true}}}
@@ -53,9 +53,9 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
     const postTemplate = path.resolve('./src/templates/Post.tsx');
     const createPostPromise = result.data?.allMdx.edges.map((edge) => {
         createPage({
-            path: `posts/${edge.node.fields.slug}`,
+            path: `posts/${edge.node.fields?.slug}`,
             component: postTemplate,
-            context: { slug: edge.node.fields.slug }
+            context: { slug: edge.node.fields?.slug }
         });
     });
 

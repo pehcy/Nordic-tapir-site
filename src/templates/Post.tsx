@@ -3,7 +3,7 @@ import React from "react";
 import Header from "../components/Header";
 import { MDXProvider } from "@mdx-js/react";
 
-const BlogPostTemplate = ({ data, pageContext } : any) => {
+const BlogPostTemplate: React.FC<PageProps<Queries.BlogPostQuery>> = ({ data, children } : any) => {
 
     const { frontmatter, body, tableOfContents } = data.mdx;
 
@@ -11,7 +11,7 @@ const BlogPostTemplate = ({ data, pageContext } : any) => {
         <div className="flex flex-col">
             <Header />
             <MDXProvider>
-              {body}
+              {children}
             </MDXProvider>
             <footer className="px-4 lg:px-8 p-4 bg-transparent h-[150px]">
                 <section className="w-full max-w-5xl mx-auto p-4 md:py-8">
@@ -25,8 +25,8 @@ const BlogPostTemplate = ({ data, pageContext } : any) => {
 
 export default BlogPostTemplate;
 
-export const pageQuery = graphql`
-  query MyQuery {
+export const query = graphql`
+  query BlogPost {
     mdx {
       id
       body
