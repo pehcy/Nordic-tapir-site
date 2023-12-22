@@ -10,7 +10,7 @@
   "scripts": {
     "develop": "gatsby develop",
     "start": "gatsby develop",
-    "build": "gatsby build",
+    "build": "gatsby build && gatsby serve",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "typecheck": "tsc --noEmit"
@@ -23,6 +23,7 @@
     "gatsby-plugin-manifest": "^5.13.0",
     "gatsby-plugin-mdx": "^5.13.0",
     "gatsby-plugin-postcss": "^6.13.0",
+    "gatsby-plugin-robots-txt": "^1.8.0",
     "gatsby-plugin-sharp": "^5.13.0",
     "gatsby-plugin-sitemap": "^6.13.0",
     "gatsby-remark-images": "^7.13.0",

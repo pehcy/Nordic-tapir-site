@@ -19,6 +19,13 @@ const config: GatsbyConfig = {
       "icon": "src/images/Tapir.png"
     }
   }, {
+    resolve: 'gatsby-plugin-robots-txt',
+    options: {
+      host: 'https://nordic-tapir.netlify.app/',
+      sitemap: 'https://nordic-tapir.netlify.app/sitemap.xml',
+      policy: [{ userAgent: '*', allow: '/' }]
+    }
+  }, {
     resolve: "gatsby-plugin-mdx",
     options: {
       gatsbyRemarkPlugins: [
