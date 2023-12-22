@@ -3,7 +3,11 @@ import type { GatsbyConfig } from "gatsby";
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `nordic-tapir`,
-    siteUrl: `https://www.yourdomain.tld`
+    siteUrl: `https://www.yourdomain.tld`,
+    canonical: `https://www.yourdomain.tld`,
+    description: `Welcome to Nordic Tapir Laboratory!`,
+    twitterUsername: `https://twitter.com/NordicTapir`,
+    image: `./src/images/Tapir.png`,
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin
@@ -12,7 +16,7 @@ const config: GatsbyConfig = {
   plugins: ["gatsby-plugin-postcss", "gatsby-plugin-image", "gatsby-plugin-sitemap", {
     resolve: 'gatsby-plugin-manifest',
     options: {
-      "icon": "src/images/icon.png"
+      "icon": "src/images/Tapir.png"
     }
   }, {
     resolve: "gatsby-plugin-mdx",
