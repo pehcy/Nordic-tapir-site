@@ -1,0 +1,66 @@
+---
+title: Analyze Ticker with Machine Learning method
+description: Analyze Ticker with Machine Learning method
+featuredImage: manjaro.png
+date: "2023-09-30T22:12:03.284Z"
+published: true
+timeToRead: "5 min"
+---
+
+# Humble Introduction
+
+First off, thank you for taking time to read this article. I’m writing here not just to summarize my notes and findings, but also to enhance my technical writing skill and sharing what I’ve learned during these few weeks.
+
+A few weeks ago I established an informal research on algorithmic trading and time series data, I decide to start building a [crypto trading bot](https://github.com/pehcy/binoculars) that would retrieve the candlesticks data for every minutes. First I had established the socket connection to Binance Streamer and retrieve real time data successfully, I then continue to build a mathematical algorithm to analyze the movement of k-lines.
+
+As I proceed further, I realized that I was unfamiliar with the concept of arbitrage, Ethereum and smart contract (at least for now), and it really took me a lot of time to do research. Fortunately, I was blessed with great mathematical thinking skills, so modelling mathematical formulae is just a cake walk for me. 
+
+Or am I?
+
+## Hold on!
+
+Before we start, here are the succinct requirements for building our model.
+
+- Python 3+, or Anaconda installer is preferable.
+- Code editors for Python (VScode, Vim, etc.)
+- (Optional) IPython/Jupyter notebook for visualization.
+- If you aren’t using Ubuntu 22.04, then you need to install python3-tk dependency for matplotlib GUI, installing with `sudo apt install python3-tk` .
+
+For me, I’m using Ubuntu 22.04 LTS in Windows 11 WSL 2. I prefer to work with Jupyter notebook inside the VSCode editor and I recommend it for you, too. So you can edit your notebooks and other code files at the same time.
+
+Once you finished setup, continue and install the following Python modules via `pip` or `conda`.
+
+- matplotlib
+- numpy
+- pandas
+- scikit-learn
+
+Scientific computing and machine learning are generally heavily rely upon certain packages such as numpy, scipy, matplolib, etc. 
+
+# Candlestick… Candles? Tick?
+
+A candlestick (or ticker) is a graphical way of representing the Open, High, Low, Close prices, together with the trades volume. The candlestick commonly abbreviated as OHLCV. 
+
+You might saw a candlestick chart before, you may observed that the candles are filled with only two colors: red (bullish) and green (bearish). The bullish candlestick with solid background (or red color) denoted that the close price is higher than the open price, and vice versa for bearish candlestick. 
+
+The open and close values correspond to the price of first trade and last trade, respectively.
+
+![./hero01.png](./hero01.png)
+
+# Gets your hands dirty
+
+It’s time to code now, note that this article is mere technicality and written primarily in Python.  
+
+For this article, I cropped out an 1-day BTC-USDT trading data for back-testing. This exported CSV file contained the OHLCV entries for every tick from date 2022/7/15 to 2022/7/16, each tick is with 1-minute interval.
+
+```python
+import numpy as np
+import pandas as pd
+from datetime import datetime
+
+df = pd.read_csv('../data/btcusdt.csv', index_col=False)
+df['Opentime'] = pd.to_datetime(df['Opentime'])
+del df['Ignore']    # remove unused ignored column
+
+df.info()
+```

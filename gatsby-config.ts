@@ -2,7 +2,7 @@ import type { GatsbyConfig } from "gatsby";
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: `tapir`,
+    title: `nordic-tapir`,
     siteUrl: `https://www.yourdomain.tld`
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
@@ -14,7 +14,21 @@ const config: GatsbyConfig = {
     options: {
       "icon": "src/images/icon.png"
     }
-  }, "gatsby-plugin-mdx", "gatsby-plugin-sharp", "gatsby-transformer-sharp", {
+  }, {
+    resolve: "gatsby-plugin-mdx",
+    options: {
+      gatsbyRemarkPlugins: [
+        'gatsby-remark-prismjs',
+      ]
+    }
+  }, {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        "name": "posts",
+        "path": "./src/posts"
+      }
+    },
+    "gatsby-plugin-sharp", "gatsby-transformer-sharp", {
     resolve: 'gatsby-source-filesystem',
     options: {
       "name": "images",

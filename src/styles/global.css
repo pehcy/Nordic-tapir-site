@@ -1,3 +1,79 @@
 @tailwind base;
+
+@layer base {
+    h1 {
+      @apply text-3xl;
+    }
+    h2 {
+      @apply text-2xl;
+    }
+    h3 {
+      @apply text-lg;
+    }
+    /*
+    a {
+        @apply text-blue-600 underline;
+    }
+    */
+}
+
 @tailwind components;
+
+@layer components {
+    .blog-main p {
+      margin-top: 1.2em;
+      margin-bottom: 1.2em;
+    }
+  
+    .blog-main p a {
+      @apply text-indigo-500;
+      text-decoration: underline;
+    }
+  
+    .blog-main blockquote {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-size: 1.1875em;
+      color: #666;
+      padding: 0 1em;
+      max-width: 31.57894736842em;
+      border-left: 6px solid #ddd;
+    }
+  
+    .blog-main table {
+      @apply border-collapse;
+      max-width: 100%;
+      text-align: center;
+      justify-content: center;
+    }
+  
+    .blog-main table thead {
+      border-bottom: 2px solid #ddd;
+    }
+  
+    .blog-main table tbody tr:nth-of-type(even) {
+      background-color: rgba(0, 0, 0, .05);
+    }
+  
+    .blog-main h1, h2, h3, h4, h5, h6 {
+      @apply font-semibold;
+      @apply pt-8;
+    }
+  
+    .header-bar {
+      font-size: 1.25rem;
+      line-height: 1.8;
+    }
+  
+    .card {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 160px;
+      grid-template-rows: auto auto;
+      grid-column-gap: 12px;
+      grid-row-gap: 12px;
+      padding: 8px;
+    }
+  
+    html { height: 100%; }
+}
+
 @tailwind utilities;
