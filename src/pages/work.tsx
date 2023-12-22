@@ -1,6 +1,7 @@
 import { PageProps } from "gatsby";
 import React from "react";
 import Layout from "../components/Layout";
+import { SEO } from "../components/SEO";
 
 const WorkPage: React.FC<PageProps> = () => {
     return (
@@ -207,3 +208,7 @@ const WorkPage: React.FC<PageProps> = () => {
 }
 
 export default WorkPage;
+
+export const Head = () => (
+    <SEO title="Tapir's Resumé" />
+)

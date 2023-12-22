@@ -23,6 +23,12 @@ const config: GatsbyConfig = {
     options: {
       gatsbyRemarkPlugins: [
         'gatsby-remark-prismjs',
+        {
+          resolve: 'gatsby-remark-images',
+          options: {
+            maxWidth: 640
+          }
+        }
       ]
     }
   }, {

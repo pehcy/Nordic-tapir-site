@@ -2,6 +2,7 @@ import React from "react";
 import Layout from "../components/Layout";
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import { Link, PageProps, graphql } from "gatsby";
+import { SEO } from "../components/SEO";
 
 const BlogPages: React.FC<PageProps<Queries.BlogMdxQuery>> = ({ data }) => {
     return (
@@ -77,3 +78,7 @@ export const query = graphql`
         }
     }
 `
+
+export const Head = () => (
+    <SEO title="Blog List" />
+)
