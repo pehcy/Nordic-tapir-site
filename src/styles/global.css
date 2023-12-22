@@ -58,6 +58,14 @@
       @apply font-semibold;
       @apply pt-8;
     }
+
+    .blog-main ul {
+      @apply list-disc
+    }
+
+    .blog-main ul li {
+      @apply ml-5
+    }
   
     .header-bar {
       font-size: 1.25rem;

@@ -1,4 +1,4 @@
-import { GatsbyNode, CreatePagesArgs } from "gatsby";
+import { GatsbyNode, CreatePagesArgs, CreateNodeArgs } from "gatsby";
 
 const path = require("path");
 const { createFilePath } = require('gatsby-source-filesystem');
@@ -69,7 +69,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
     }
 }
 
-export const onCreateNode = ({ node, actions, getNode } : IOnCreateNode) => {
+export const onCreateNode = ({ node, actions, getNode } : CreateNodeArgs) => {
     const { createNodeField } = actions;
 
     if (node.internal.type === 'Mdx') {

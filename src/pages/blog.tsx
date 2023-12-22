@@ -20,7 +20,7 @@ const BlogPages: React.FC<PageProps<Queries.BlogMdxQuery>> = ({ data }) => {
                             <Link
                             to={`/blog${node.fields?.slug}`}
                             >
-                                <div className="card relative hover:bg-gray-100 p-8 border border-8-slate mb-6">
+                                <div className="card relative hover:bg-gray-100 rounded-lg p-8 border border-8-slate mb-6">
                                     <div className="max-w-lg relative flex flex-col">
                                         <h1 className="font-semibold text-xl md:text-3xl md:pb-5">
                                             { node.frontmatter?.title }

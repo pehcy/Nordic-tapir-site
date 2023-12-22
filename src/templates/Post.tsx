@@ -24,12 +24,12 @@ const BlogPostTemplate: React.FC<PageProps<Queries.BlogPostQuery>> = ({ data, ch
               </div>
             </div>
             <GatsbyImage 
-              className="max-w-3xl rounded-md" 
+              className="max-w-3xl md:object-scale-down md:h-48 md:w-96 rounded-md" 
               image={ data.mdx?.frontmatter?.featuredImage?.childImageSharp?.gatsbyImageData as IGatsbyImageData}
               alt={ data.mdx?.frontmatter?.description }
             />
           </div>
-          <article className="mt-10 blog-main header-bar leading-relaxed text-ellipsis">
+          <article className="mt-10 blog-main text-lg header-bar leading-relaxed text-ellipsis">
             <MDXProvider>{ children }</MDXProvider>
           </article>
         </div>
