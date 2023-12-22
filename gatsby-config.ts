@@ -3,8 +3,8 @@ import type { GatsbyConfig } from "gatsby";
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `nordic-tapir`,
-    siteUrl: `https://www.yourdomain.tld`,
-    canonical: `https://www.yourdomain.tld`,
+    siteUrl: `https://nordic-tapir.netlify.app/`,
+    canonical: `https://nordic-tapir.netlify.app/`,
     description: `Welcome to Nordic Tapir Laboratory!`,
     twitterUsername: `https://twitter.com/NordicTapir`,
     image: `./src/images/Tapir.png`,
