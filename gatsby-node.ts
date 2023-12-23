@@ -69,7 +69,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
     }
 }
 
-export const onCreateNode = ({ node, actions, getNode } : CreateNodeArgs) => {
+export const onCreateNode: GatsbyNode["onCreateNode"] = ({ node, actions, getNode } : CreateNodeArgs) => {
     const { createNodeField } = actions;
 
     if (node.internal.type === 'Mdx') {
