@@ -4,7 +4,7 @@ const config: GatsbyConfig = {
   siteMetadata: {
     title: `nordic-tapir`,
     siteUrl: `https://nordic-tapir.netlify.app/`,
-    canonical: `https://nordic-tapir.netlify.app/`,
+    canonical: `https://nordic-tapir.netlify.app`,
     description: `Welcome to Nordic Tapir Laboratory!`,
     twitterUsername: `https://twitter.com/NordicTapir`,
     image: `/favicon-32x32.png`,
