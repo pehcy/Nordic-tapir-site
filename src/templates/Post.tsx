@@ -65,5 +65,7 @@ export const query = graphql`
 `
 
 export const Head = ({ data }: any) => (
-  <SEO title={data.mdx.frontmatter.title} />
+  <SEO title={data.mdx.frontmatter.title} 
+    pathname={`/blog${data.mdx.fields.slug}`} 
+  />
 )
