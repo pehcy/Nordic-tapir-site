@@ -210,5 +210,5 @@ const WorkPage: React.FC<PageProps> = () => {
 export default WorkPage;
 
 export const Head = () => (
-    <SEO title="Tapir's Resumé" />
+    <SEO title="Tapir's Resumé" pathname={location.pathname} />
 )
