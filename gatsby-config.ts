@@ -1,9 +1,6 @@
 import type { GatsbyConfig } from "gatsby";
 
 const config: GatsbyConfig = {
-  flags: {
-    DEV_SSR: true
-  },
   siteMetadata: {
     title: `nordic-tapir`,
     siteUrl: `https://nordic-tapir.netlify.app/`,
