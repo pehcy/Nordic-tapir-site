@@ -22,15 +22,15 @@ const BlogPages: React.FC<PageProps<Queries.BlogMdxQuery>> = ({ data }) => {
                             >
                                 <div className="card relative hover:bg-gray-100 rounded-lg p-8 border border-2 border-slate-300 mb-6">
                                     <div className="max-w-lg relative flex flex-col">
-                                        <h1 className="font-semibold text-xl md:text-3xl md:pb-5">
+                                        <h1 className="font-semibold text-xl md:text-3xl md:pb-5 pb-6">
                                             { node.frontmatter?.title }
                                         </h1>
-                                        <p className="text-slate-400 pb-3 text-sm md:text-base">
+                                        <p className="text-slate-700 pb-3 text-sm md:text-base">
                                             { node.frontmatter?.description }
                                         </p>
                                         <div className="flex flex-col md:flex-row">
-                                            <p className="text-slate-400">✒️ Last Update: { node.frontmatter?.lastUpdate }</p>
-                                            <p className="md:px-6 text-slate-400">⏱️ Time to read: { node.frontmatter?.timeToRead }</p>
+                                            <p className="text-slate-700">✒️ Last Update: { node.frontmatter?.lastUpdate }</p>
+                                            <p className="md:px-6 text-slate-700">⏱️ Time to read: { node.frontmatter?.timeToRead }</p>
                                         </div>
                                     </div>
                                     <GatsbyImage 
