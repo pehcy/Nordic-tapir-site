@@ -7,7 +7,7 @@ const config: GatsbyConfig = {
     canonical: `https://nordic-tapir.netlify.app/`,
     description: `Welcome to Nordic Tapir Laboratory!`,
     twitterUsername: `https://twitter.com/NordicTapir`,
-    image: `./src/images/Tapir.png`,
+    image: `/favicon-32x32.png`,
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin

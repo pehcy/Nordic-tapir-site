@@ -26,9 +26,9 @@ export const SEO = ({ title, description, pathname, children }: ISEO) => {
     const seo = {
         title: title || defaultTitle,
         description: description || defaultDescription,
-        image: `${siteUrl}${image}`,
+        image: `${image}`,
         url: `${siteUrl}${pathname || ``}`,
-        canonical: `${canonical}${pathname || ``}`,
+        canonical: `${canonical}`,
         twitterUsername,
     };
 
@@ -39,7 +39,8 @@ export const SEO = ({ title, description, pathname, children }: ISEO) => {
         "name": `${seo.title}`,
         "url": `${siteUrl}`,
         "sameAs": [
-            `${twitterUsername}`
+            `${twitterUsername}`,
+            `https://github.com/pehcy`
         ],
         "image": `${seo.image}`
     };
