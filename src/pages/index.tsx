@@ -19,5 +19,5 @@ const IndexPage: React.FC<PageProps> = () => {
 export default IndexPage;
 
 export const Head = () => (
-    <SEO title="About" />
+    <SEO title="Nordic Tapir's site" />
 )

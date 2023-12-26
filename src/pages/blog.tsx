@@ -81,5 +81,5 @@ export const query = graphql`
 `
 
 export const Head = () => (
-    <SEO title="Blog List" />
+    <SEO title="Nordic Tapir's blog" />
 )
