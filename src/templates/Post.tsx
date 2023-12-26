@@ -20,7 +20,7 @@ const BlogPostTemplate: React.FC<PageProps<Queries.BlogPostQuery>> = ({ data, ch
                 <span className="px-5"> | </span>
                 <span className="px-5">⏱️ Time to read: { data.mdx?.frontmatter?.timeToRead }</span>
                 <span className="px-5"> | </span>
-                <span className="px-5">💾 Last updated: { data.mdx?.frontmatter?.date }</span>
+                <span className="px-5">💾 Last updated: { data.mdx?.frontmatter?.lastUpdate }</span>
               </div>
             </div>
             <GatsbyImage 
@@ -48,6 +48,7 @@ export const query = graphql`
         title
         description
         date
+        lastUpdate
         published
         timeToRead
         featuredImage {

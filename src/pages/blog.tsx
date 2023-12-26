@@ -29,7 +29,7 @@ const BlogPages: React.FC<PageProps<Queries.BlogMdxQuery>> = ({ data }) => {
                                             { node.frontmatter?.description }
                                         </p>
                                         <div className="flex flex-col md:flex-row">
-                                            <p className="text-slate-400">✒️ Created: { node.frontmatter?.date }</p>
+                                            <p className="text-slate-400">✒️ Last Update: { node.frontmatter?.lastUpdate }</p>
                                             <p className="md:px-6 text-slate-400">⏱️ Time to read: { node.frontmatter?.timeToRead }</p>
                                         </div>
                                     </div>
@@ -53,7 +53,7 @@ export default BlogPages;
 export const query = graphql`
     query BlogMdx {
         allMdx(
-            sort: {frontmatter: {date: DESC}}
+            sort: {frontmatter: {lastUpdate: DESC}}
             filter: {frontmatter: {published: {eq: true}}}
         ) {
             edges {
@@ -64,6 +64,7 @@ export const query = graphql`
                     }
                     frontmatter {
                         date
+                        lastUpdate
                         title
                         description
                         timeToRead
